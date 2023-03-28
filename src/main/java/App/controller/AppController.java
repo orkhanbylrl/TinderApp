@@ -7,12 +7,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class AppController {
 
-    @GetMapping("login")
+    @GetMapping("/login")
     public ModelAndView handleLogin(){
         return new ModelAndView("login");
     }
 
-    @GetMapping("register")
+    @GetMapping("/register")
     public ModelAndView handleRegister(){
         return new ModelAndView("register");
     }
