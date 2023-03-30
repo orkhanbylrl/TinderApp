@@ -6,7 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+
+import java.util.Collection;
 
 @Entity
 @Data
@@ -17,6 +18,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Integer id;
     @Email
     private String email;
@@ -32,6 +34,16 @@ public class User {
     private String position;
     @NotBlank
     private Boolean gender;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_role",
+    joinColumns = {
+            @JoinColumn(name = "user_id")
+    },
+    inverseJoinColumns = {
+            @JoinColumn(name = "role_id")
+    })
+    private Collection<Role> roles;
 
 
 }
