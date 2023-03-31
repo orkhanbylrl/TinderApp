@@ -15,6 +15,8 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/app/register")
+                .permitAll()
                 .and()
                 .formLogin()
                 .loginProcessingUrl("/app/login")
