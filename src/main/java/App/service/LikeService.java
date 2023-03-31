@@ -1,4 +1,4 @@
 package App.service;
 
-public class LikeService {
+public interface LikeService {
 }
