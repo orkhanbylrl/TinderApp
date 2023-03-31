@@ -1,10 +1,10 @@
 package App.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/user")
+@Controller
+@RequestMapping("/app/user")
 public class UserController {
 
 

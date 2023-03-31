@@ -1,4 +1,4 @@
 package App.service;
 
-public class MessageService {
+public interface MessageService {
 }
