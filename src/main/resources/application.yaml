@@ -13,4 +13,6 @@ spring:
     generate-ddl: true
     show-sql: true
 
+  mvc:
+    static-path-pattern: /static/**
 
