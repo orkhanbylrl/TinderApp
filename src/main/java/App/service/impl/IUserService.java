@@ -1,6 +1,7 @@
 package App.service.impl;
 
 import App.dao.UserRepo;
+import App.dto.UserRq;
 import App.model.User;
 import App.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -23,5 +24,11 @@ public class IUserService implements UserService, UserDetailsService {
 
         return user.map(IUserDetails::new).orElseThrow(
                 () -> new UsernameNotFoundException(String.format("User %s is not found", email)));
+    }
+
+    @Override
+    public void save(UserRq userRq) {
+        User u = User.builder().build();
+        repo.save(u);
     }
 }
