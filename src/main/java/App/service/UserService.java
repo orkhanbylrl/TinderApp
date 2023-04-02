@@ -1,10 +1,9 @@
 package App.service;
 
-import App.dto.UserRq;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import App.dto.UserRegDTO;
 
 public interface UserService {
-    void save(UserRq userRq);
+    void save(UserRegDTO userReg);
 
 
 
