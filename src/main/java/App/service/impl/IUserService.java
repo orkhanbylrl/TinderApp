@@ -40,4 +40,9 @@ public class IUserService implements UserService, UserDetailsService {
                 .build();
         repo.save(u);
     }
+
+    @Override
+    public boolean isUserExist(String email) {
+        return false;
+    }
 }
