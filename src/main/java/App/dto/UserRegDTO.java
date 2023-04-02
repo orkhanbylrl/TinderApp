@@ -5,8 +5,10 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class UserRq {
+public class UserRegDTO {
+
     @Email
+    @NotBlank
     private String email;
     @NotBlank
     private String password;
@@ -14,7 +16,7 @@ public class UserRq {
     private String name;
     @NotBlank
     private String surname;
-    @NotBlank
+
     private String imgUrl;
     @NotBlank
     private String position;

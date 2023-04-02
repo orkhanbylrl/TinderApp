@@ -24,6 +24,7 @@ public class User {
     @Column(name = "user_id")
     private Integer id;
     @Email
+    @NotBlank
     private String email;
     @NotBlank
     private String password;
@@ -31,7 +32,7 @@ public class User {
     private String name;
     @NotBlank
     private String surname;
-    @NotBlank
+
     private String imgUrl;
     @NotBlank
     private String position;
