@@ -12,6 +12,8 @@ import org.thymeleaf.templatemode.TemplateMode;
 @Configuration
 public class TemplateConfig {
 
+
+
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(){
         return (web) -> web
