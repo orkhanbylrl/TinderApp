@@ -1,7 +1,8 @@
 package App.mapper;
 
-import App.dto.UserLoginDTO;
-import App.dto.UserRegDTO;
+import App.dto.UserLoginRqDTO;
+import App.dto.UserRegRqDTO;
+import App.dto.UserRespDTO;
 import App.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -11,8 +12,9 @@ public interface UserMapper {
 
     UserMapper MAPPER = Mappers.getMapper(UserMapper.class);
 
-    User mapToUser(UserLoginDTO loginDTO);
-    User mapToUser(UserRegDTO regDTO);
-    UserLoginDTO mapToLoginDto(User user);
-    UserRegDTO mapToRegDto(User user);
+    User mapToUser(UserRegRqDTO regDTO);
+
+    UserRespDTO mapToUserResp(User user);
+    UserLoginRqDTO mapToLoginDto(User user);
+    UserRegRqDTO mapToRegDto(User user);
 }

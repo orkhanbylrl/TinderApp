@@ -1,10 +1,8 @@
 package App.controller;
 
-import App.dao.UserRepo;
-import App.dto.UserLoginDTO;
-import App.dto.UserRegDTO;
-import App.mapper.UserMapper;
-import App.model.User;
+import App.dto.UserLoginRqDTO;
+import App.dto.UserRegRqDTO;
+import App.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,24 +11,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/app/user")
 @RequiredArgsConstructor
 public class UserController {
 
-
+    private final UserService userService;
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody UserRegDTO uerReg){
+    public ResponseEntity<?> register(@RequestBody UserRegRqDTO userReg){
 
-
-        return ResponseEntity.status(HttpStatus.CREATED).body();
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(userReg));
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody UserLoginDTO userLogin){
+    public ResponseEntity<?> login(@RequestBody UserLoginRqDTO userLogin){
 
+        return null;
     }
 
 
