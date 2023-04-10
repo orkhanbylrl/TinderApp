@@ -30,14 +30,7 @@ public class IUserService implements UserService, UserDetailsService {
 
     @Override
     public void save(UserRegDTO userReg) {
-        User u = User.builder()
-                .email(userReg.getEmail())
-                .password(encoder.encode(userReg.getPassword()))
-                .name(userReg.getName())
-                .surname(userReg.getSurname())
-                .imgUrl(userReg.getImgUrl())
-                .gender(userReg.getGender())
-                .build();
+
         repo.save(u);
     }
 

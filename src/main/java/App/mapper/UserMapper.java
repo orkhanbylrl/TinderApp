@@ -8,8 +8,11 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface UserMapper {
-    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
+
+    UserMapper MAPPER = Mappers.getMapper(UserMapper.class);
 
     User mapToUser(UserLoginDTO loginDTO);
     User mapToUser(UserRegDTO regDTO);
+    UserLoginDTO mapToLoginDto(User user);
+    UserRegDTO mapToRegDto(User user);
 }
