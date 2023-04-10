@@ -16,7 +16,6 @@ public class UserRegDTO {
     private String name;
     @NotBlank
     private String surname;
-
     private String imgUrl;
     @NotBlank
     private String position;
