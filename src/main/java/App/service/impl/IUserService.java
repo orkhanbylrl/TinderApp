@@ -1,7 +1,9 @@
 package App.service.impl;
 
 import App.dao.UserRepo;
-import App.dto.UserRegDTO;
+import App.dto.UserRegRqDTO;
+import App.dto.UserRespDTO;
+import App.mapper.UserMapper;
 import App.model.User;
 import App.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -29,16 +31,10 @@ public class IUserService implements UserService, UserDetailsService {
     }
 
     @Override
-    public void save(UserRegDTO userReg) {
-        User u = User.builder()
-                .email(userReg.getEmail())
-                .password(encoder.encode(userReg.getPassword()))
-                .name(userReg.getName())
-                .surname(userReg.getSurname())
-                .imgUrl(userReg.getImgUrl())
-                .gender(userReg.getGender())
-                .build();
-        repo.save(u);
+    public UserRespDTO save(UserRegRqDTO userReg) {
+        User user = UserMapper.MAPPER.mapToUser(userReg);
+        User saved = repo.save(user);
+        return UserMapper.MAPPER.mapToUserResp(saved);
     }
 
     @Override
