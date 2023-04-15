@@ -13,8 +13,6 @@ public interface UserMapper {
     UserMapper MAPPER = Mappers.getMapper(UserMapper.class);
 
     User mapToUser(UserRegRqDTO regDTO);
-
     UserRespDTO mapToUserResp(User user);
-    UserLoginRqDTO mapToLoginDto(User user);
-    UserRegRqDTO mapToRegDto(User user);
+
 }
