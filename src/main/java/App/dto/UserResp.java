@@ -3,7 +3,7 @@ package App.dto;
 import lombok.Data;
 
 @Data
-public class UserRespDTO {
+public class UserResp {
 
     private Integer id;
     private String email;

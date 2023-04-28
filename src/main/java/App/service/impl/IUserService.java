@@ -1,8 +1,8 @@
 package App.service.impl;
 
 import App.dao.UserRepo;
-import App.dto.UserRegRqDTO;
-import App.dto.UserRespDTO;
+import App.dto.UserRegRq;
+import App.dto.UserResp;
 import App.mapper.UserMapper;
 import App.model.User;
 import App.service.UserService;
@@ -25,7 +25,7 @@ public class IUserService implements UserService {
 //    }
 
     @Override
-    public UserRespDTO save(UserRegRqDTO userReg) {
+    public UserResp save(UserRegRq userReg) {
         User user = UserMapper.MAPPER.mapToUser(userReg);
         User saved = repo.save(user);
         return UserMapper.MAPPER.mapToUserResp(saved);

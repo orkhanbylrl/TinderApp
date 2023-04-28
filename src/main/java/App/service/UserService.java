@@ -1,12 +1,12 @@
 package App.service;
 
-import App.dto.UserRegRqDTO;
-import App.dto.UserRespDTO;
+import App.dto.UserRegRq;
+import App.dto.UserResp;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface UserService {
-    UserRespDTO save(UserRegRqDTO userReg);
+    UserResp save(UserRegRq userReg);
     boolean isUserExist(String email);
 
 }

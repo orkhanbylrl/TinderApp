@@ -1,6 +1,7 @@
-package App.exception;
+package App.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,9 +10,10 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ErrorDetails {
-    private LocalDateTime dateTime;
-    private String path;
+@Builder
+public class ErrorResp {
+    private LocalDateTime timestamp;
     private String message;
+    private String path;
     private String errorCode;
 }

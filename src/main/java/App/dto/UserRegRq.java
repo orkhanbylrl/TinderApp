@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class UserRegRqDTO {
+public class UserRegRq {
 
     @Email
     @NotBlank(message = "Email can not be an empty")
