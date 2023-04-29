@@ -22,13 +22,27 @@ public class GlobalExceptionHandler {
                 .toList()
                 .toString();
 
-        ErrorResp errorDetail = ErrorResp.builder()
+        ErrorResp errDetail = ErrorResp.builder()
                 .path(webRequest.getDescription(false))
                 .timestamp(LocalDateTime.now())
                 .errorCode("INVALID_JSON")
                 .message(errMsg)
                 .build();
 
-        return new ResponseEntity<>(errorDetail, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errDetail, HttpStatus.BAD_REQUEST);
     }
+
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResp> userNotFoundException(UserNotFoundException ex, WebRequest webRequest){
+        ErrorResp errDetail = ErrorResp.builder()
+                .path(webRequest.getDescription(false))
+                .timestamp(LocalDateTime.now())
+                .errorCode("USER_NOT_FOUND")
+                .message(ex.getMessage())
+                .build();
+
+        return new ResponseEntity<>(errDetail, HttpStatus.NOT_FOUND);
+    }
+
 }
