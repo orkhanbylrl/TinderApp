@@ -20,14 +20,12 @@ public class UserController {
     private final UserService userService;
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody UserRegRq userReg){
-
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(userReg));
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody UserLoginRq userLogin){
-
-        return null;
+        return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUser(userLogin));
     }
 
 
