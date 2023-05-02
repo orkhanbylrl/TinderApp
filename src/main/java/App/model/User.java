@@ -26,6 +26,7 @@ public class User {
     private Integer id;
     @Email
     @NotBlank
+    @Column(unique = true)
     private String email;
     @NotBlank
     private String password;

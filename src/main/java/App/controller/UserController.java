@@ -2,30 +2,30 @@ package App.controller;
 
 import App.dto.UserLoginRq;
 import App.dto.UserRegRq;
+import App.dto.UserResp;
 import App.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/app/user")
+@RequestMapping("/app/user/{id}")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
-    @PostMapping("/register")
-    public ResponseEntity<?> register(@Valid @RequestBody UserRegRq userReg){
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(userReg));
+    @GetMapping("/main")
+    public ResponseEntity<List<UserResp>> mainPage(@PathVariable Integer id){
+        return ResponseEntity.status(HttpStatus.OK).body(userService.getAllExcept(id));
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody UserLoginRq userLogin){
-        return ResponseEntity.status(HttpStatus.FOUND).body(userService.getUser(userLogin));
+    @GetMapping("/user_prof/{id}")
+    public ResponseEntity<UserResp> userProfile(@PathVariable Integer id){
+        return null;
     }
 
 

@@ -1,18 +1,16 @@
 package App.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-//@Entity
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "like_table")
 public class Like {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     Integer likerId;
     Integer likedId;
