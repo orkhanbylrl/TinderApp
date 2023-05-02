@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/app/user/{id}/like")
+@RequestMapping("/app/like")
 public class LikeController {
 
     @PostMapping("/{id}")
