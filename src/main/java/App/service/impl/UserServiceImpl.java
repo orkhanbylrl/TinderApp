@@ -9,14 +9,14 @@ import App.mapper.UserMapper;
 import App.model.User;
 import App.service.UserService;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class IUserService implements UserService {
+public class UserServiceImpl implements UserService {
 
     private final UserRepo repo;
 //    private final PasswordEncoder encoder;
@@ -47,5 +47,13 @@ public class IUserService implements UserService {
     @Override
     public boolean isUserExist(String email) {
         return false;
+    }
+
+    @Override
+    public List<UserResp> getAllExcept(Integer id) {
+        return repo.findUsersByIdIsNot(id)
+                .stream()
+                .map(UserMapper.MAPPER::mapToUserResp)
+                .collect(Collectors.toList());
     }
 }
